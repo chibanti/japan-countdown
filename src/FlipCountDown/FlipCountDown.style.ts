@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 
 export const fontFamily = `'Anton', sans-serif;`;
 export const borderColor = "#090d0f";
-export const cardColor = "#090d0f";
+export const cardColor = "#131c20";
 export const fontSize = "5rem";
 export const fontSizeMobile = "2rem";
 
