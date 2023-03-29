@@ -23,6 +23,12 @@ export const themes = {
       color: black;
     }
 
+    h4,
+    p {
+      color: white;
+      text-shadow: 0 0 3px #000;
+    }
+
     .FlipUnitContainer,
     .fold,
     .unfold {
