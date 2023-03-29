@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import {
-  borderColor,
+  borderRadius,
   fontColor,
   fontFamily,
   fontSize,
@@ -17,24 +17,19 @@ const styles = css`
     width: 100%;
     height: 50%;
     overflow: hidden;
-    border: 1px solid ${borderColor};
 
-    span {
-      font-size: ${fontSize};
-      font-family: ${fontFamily};
-      font-weight: ${fontWidth};
-      color: ${fontColor};
+    font-size: ${fontSize};
+    font-family: ${fontFamily};
+    font-weight: ${fontWidth};
 
-      @media (max-width: 768px) {
-        font-size: ${fontSizeMobile};
-      }
+    @media (max-width: 768px) {
+      font-size: ${fontSizeMobile};
     }
   }
   &.upperCard {
     align-items: flex-end;
-    border-bottom: 0.5px solid ${borderColor};
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: ${borderRadius};
+    border-top-right-radius: ${borderRadius};
 
     span {
       transform: translateY(50%);
@@ -42,9 +37,8 @@ const styles = css`
   }
   &.lowerCard {
     align-items: flex-start;
-    border-top: 0.5px solid ${borderColor};
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: ${borderRadius};
+    border-bottom-right-radius: ${borderRadius};
 
     span {
       transform: translateY(-50%);

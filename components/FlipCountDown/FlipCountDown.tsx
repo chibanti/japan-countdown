@@ -28,23 +28,24 @@ const FlipCountDown: React.FC<Props> = ({ timeStamp }) => {
   const [timeLeft, setTimeLeft] = useState<Duration | null>(null);
 
   useEffect(() => {
+    const updateTime = () => {
+      const now = new Date().getTime();
+      const diff = timeStamp - now;
+
+      if (diff < 0) return null;
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      setTimeLeft({ days: d, hours: h, minutes: m, seconds: s });
+    };
+
     const timerID = setInterval(() => updateTime(), 50);
+
     return () => clearInterval(timerID);
-  }, []);
-
-  const updateTime = () => {
-    const now = new Date().getTime();
-    const diff = timeStamp - now;
-
-    if (diff < 0) return null;
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-    setTimeLeft({ days: d, hours: h, minutes: m, seconds: s });
-  };
+  }, [timeStamp]);
 
   if (!timeLeft) return null;
 

@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import AnimatedCard from "./AnimatedCard";
-import { cardColor } from "./FlipCountDown.style";
+import { borderRadius, cardColor } from "./FlipCountDown.style";
 import StaticCard from "./StaticCard";
 
 const styles = css`
@@ -11,8 +11,7 @@ const styles = css`
   height: 120px;
   perspective-origin: 50% 50%;
   perspective: 300px;
-  background-color: ${cardColor};
-  border-radius: 10px;
+  border-radius: ${borderRadius};
 
   @media (max-width: 768px) {
     width: 70px;
@@ -36,7 +35,7 @@ const FlipUnitContainer = ({
     }
 
     setValue(digit);
-  }, [digit]);
+  }, [digit, value]);
 
   // assign digit values
   let currentDigit = digit;
@@ -58,7 +57,7 @@ const FlipUnitContainer = ({
   const animation2 = !shuffle ? "fold" : "unfold";
 
   return (
-    <div css={styles}>
+    <div className="FlipUnitContainer" css={styles}>
       <StaticCard className="upperCard" digit={zeroPad(currentDigit, 2)} />
       <StaticCard className="lowerCard" digit={zeroPad(nextDigit, 2)} />
       <AnimatedCard digit={zeroPad(digit1, 2)} animation={animation1} />

@@ -22,7 +22,7 @@ const CountDown: React.FC<Props> = ({ timeStamp }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [timeStamp]);
 
   if (!timeLeft) return null;
 

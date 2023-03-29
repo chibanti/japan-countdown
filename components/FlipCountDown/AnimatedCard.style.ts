@@ -1,10 +1,8 @@
 import { css } from "@emotion/react";
 import {
   animate,
-  borderColor,
-  cardColor,
+  borderRadius,
   easeInOut,
-  fontColor,
   fontFamily,
   fontSize,
   fontSizeMobile,
@@ -22,15 +20,12 @@ export default css`
   overflow: hidden;
   backface-visibility: hidden;
 
-  span {
-    font-family: ${fontFamily};
-    font-size: ${fontSize};
-    font-weight: ${fontWidth};
-    color: ${fontColor};
+  font-family: ${fontFamily};
+  font-size: ${fontSize};
+  font-weight: ${fontWidth};
 
-    @media (max-width: 768px) {
-      font-size: ${fontSizeMobile};
-    }
+  @media (max-width: 768px) {
+    font-size: ${fontSizeMobile};
   }
 
   &.unfold {
@@ -38,11 +33,8 @@ export default css`
     align-items: flex-start;
     transform-origin: 50% 0%;
     transform: rotateX(180deg);
-    background-color: ${cardColor};
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border: 0.5px solid ${borderColor};
-    border-top: 0.5px solid ${borderColor};
+    border-bottom-left-radius: ${borderRadius};
+    border-bottom-right-radius: ${borderRadius};
 
     span {
       transform: translateY(-50%);
@@ -53,11 +45,7 @@ export default css`
     align-items: flex-end;
     transform-origin: 50% 100%;
     transform: rotateX(0deg);
-    background-color: ${cardColor};
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border: 0.5px solid ${borderColor};
-    border-bottom: 0.5px solid ${borderColor};
+    border-top-left-radius: ${borderRadius};
 
     span {
       transform: translateY(50%);
