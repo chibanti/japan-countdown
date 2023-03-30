@@ -25,8 +25,7 @@ export const themes = {
 
     h4,
     p {
-      color: white;
-      text-shadow: 0 0 3px #000;
+      color: black;
     }
 
     .FlipUnitContainer,
